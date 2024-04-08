@@ -15,4 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file transformers-cpu/Dockerfile --tag transformers-cpu:v0
+      run: docker build . --file transformers-cpu/Dockerfile --tag transformers:cpu
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+    - name: Push image to Docker Hub
+      run: docker tag transformers-cpu:v0 ${{ secrets.DOCKER_USERNAME }}/transformers:cpu
+    - run: docker push ${{ secrets.DOCKER_USERNAME }}/transformers:cpu
