@@ -23,5 +23,5 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Push image to Docker Hub
-      run: docker tag transformers:cpu ${{ secrets.DOCKER_USERNAME }}/transformers:cpu
-    - run: docker push ${{ secrets.DOCKER_USERNAME }}/transformers:cpu
+      run: docker tag transformers:cpu xiaoql/transformers:cpu
+    - run: docker push xiaoql/transformers:cpu
