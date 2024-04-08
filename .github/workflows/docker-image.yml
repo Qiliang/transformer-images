@@ -1,6 +1,7 @@
 name: transformers-cpu image
-
+# manually trigger the workflow
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
   pull_request:
