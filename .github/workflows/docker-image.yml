@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: transformers-cpu image
 
 on:
   push:
